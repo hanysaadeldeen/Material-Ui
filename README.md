@@ -15,7 +15,6 @@ The course covers a wide range of topics to help you master Material UI:
 - Advanced Components (Tables, Dialogs, etc.)
 - Responsive Design with Material UI
 - Best Practices and Performance Optimization
--
 - Building a Complete Application
 
 
