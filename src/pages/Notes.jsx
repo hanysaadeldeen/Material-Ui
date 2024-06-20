@@ -1,6 +1,8 @@
 import { Button, ButtonGroup, Container, Typography } from "@mui/material";
 
-
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 export default function Notes() {
   return (
 
@@ -26,7 +28,19 @@ export default function Notes() {
           onClick={() => console.log("you click three")}
         >three</Button>
 
+
       </ButtonGroup>
+      <Button variant="outlined"
+        startIcon={<DeleteIcon />}>
+        Delete
+      </Button>
+
+      <Button variant="contained"
+        endIcon={<SendIcon />}>
+        Send
+      </Button>
+      <HomeOutlinedIcon color="secondary" fontSize="large" />
+      <HomeOutlinedIcon color="secondary" fontSize="smalll" />
     </Container>
   )
 }
