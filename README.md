@@ -18,4 +18,5 @@ The course covers a wide range of topics to help you master Material UI:
 - Building a Complete Application
 
 
-use this Project by using this command git clone https://github.com/hanysaadeldeen/Material-Ui.git
+## use this Project by using this command:
+- git clone https://github.com/hanysaadeldeen/Material-Ui.git
