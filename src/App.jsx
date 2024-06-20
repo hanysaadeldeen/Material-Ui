@@ -8,7 +8,7 @@ function App() {
 
   return (
     <Container>
-      <Typography variant="h4" component="h1" gutterBottom>
+      <Typography variant="h1" component="h1" gutterBottom>
         Hello, Material-UI with Vite!
       </Typography>
       <Button variant="contained" color="primary">
