@@ -11,7 +11,7 @@ export default function Notes() {
       <Typography
         variant="h6"
         component="h1"
-        color="primary"
+        color="secondary"
         align="center"
       >
         Learn Material-Ui
@@ -40,7 +40,7 @@ export default function Notes() {
         Send
       </Button>
       <HomeOutlinedIcon color="secondary" fontSize="large" />
-      <HomeOutlinedIcon color="secondary" fontSize="smalll" />
+      <HomeOutlinedIcon color="primary" fontSize="smalll" />
     </Container>
   )
 }
