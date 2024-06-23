@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Container, TextField, Typography, } from "@mui/material";
+import { Button, ButtonGroup, Container, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField, Typography, } from "@mui/material";
 
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
@@ -27,8 +27,15 @@ export default function Notes() {
   const [desc, setDesc] = useState("")
   const [titleError, setTitleError] = useState(false)
   const [descError, setDescError] = useState(false)
+  const [category, setCategory] = useState("")
+
   // const Clases = useStyles()
 
+
+  const getCategory = (e) => {
+    setCategory(e)
+    console.log(e);
+  }
 
   const getData = (e) => {
     e.preventDefault()
@@ -112,6 +119,14 @@ export default function Notes() {
           variant="filled"
           error={descError}
         />
+        <FormControl>
+          <FormLabel id="demo-controlled-radio-buttons-group">Gender</FormLabel>
+          <RadioGroup value={category} onChange={(e) => getCategory(e.target.value)}>
+            <FormControlLabel value="female" control={<Radio />} label="Female" />
+            <FormControlLabel value="test" control={<Radio />} label="test" />
+            <FormControlLabel value="male" control={<Radio />} label="Male" />
+          </RadioGroup>
+        </FormControl>
         <Button
           type="submit"
           color="secondary"

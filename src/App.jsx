@@ -9,9 +9,7 @@ import { purple } from "@mui/material/colors";
 
 const Theme = createMuiTheme({
   palette: {
-    primary: {
-      main: "#f6f6f6"
-    },
+
     secondary: purple
   },
   typography: {
