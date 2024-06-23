@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Notes from "./pages/Notes";
-import Create from "./pages/Create";
 import { ThemeProvider, createMuiTheme } from "@mui/material";
 import { purple } from "@mui/material/colors";
+import Notess from "./pages/Notess";
+import Create from "./pages/Create";
 // import { ThemeProvider, createMuiTheme } from "@emotion/react";
 
 
@@ -25,8 +25,9 @@ function App() {
     <ThemeProvider theme={Theme}>
       <BrowserRouter>
         <Routes>
-          <Route element={<Notes />} exact path="/" />
+          {/* <Route element={<Notes />} exact path="/" /> */}
           <Route element={<Create />} path="/create" />
+          <Route element={<Notess />} path="/" />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
