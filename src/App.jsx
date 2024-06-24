@@ -3,6 +3,7 @@ import { ThemeProvider, createMuiTheme } from "@mui/material";
 import { purple } from "@mui/material/colors";
 import Notess from "./pages/Notess";
 import Create from "./pages/Create";
+import Layout from "./components/Layout";
 // import { ThemeProvider, createMuiTheme } from "@emotion/react";
 
 
@@ -24,11 +25,12 @@ function App() {
   return (
     <ThemeProvider theme={Theme}>
       <BrowserRouter>
-        <Routes>
-          {/* <Route element={<Notes />} exact path="/" /> */}
-          <Route element={<Create />} path="/create" />
-          <Route element={<Notess />} path="/" />
-        </Routes>
+        <Layout>
+          <Routes>
+            <Route element={<Create />} path="/create" />
+            <Route element={<Notess />} path="/" />
+          </Routes>
+        </Layout>
       </BrowserRouter>
     </ThemeProvider>
   );
