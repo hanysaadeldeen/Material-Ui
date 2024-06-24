@@ -11,14 +11,6 @@ const Notess = () => {
     }, [])
     return (
         <Container>
-            {/* <Grid container>
-                <Grid item md="4" lg="5">1</Grid>
-                <Grid item md="4" lg="5">2</Grid>
-                <Grid item md="4" lg="2">3</Grid>
-                <Grid item md="4" lg="2">4</Grid>
-            </Grid> */}
-
-            {/* <></> */}
 
             <h1>All notes</h1>
             <Grid container>
