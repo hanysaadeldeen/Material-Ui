@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider, createMuiTheme } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material";
 import { purple } from "@mui/material/colors";
 import Notess from "./pages/Notess";
 import Create from "./pages/Create";
@@ -8,7 +8,7 @@ import Layout from "./components/Layout";
 
 
 
-const Theme = createMuiTheme({
+const Theme = createTheme({
   palette: {
 
     secondary: purple
