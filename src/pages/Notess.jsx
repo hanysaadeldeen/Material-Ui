@@ -3,8 +3,9 @@ import { useEffect, useState } from "react"
 import NoteCard from "../components/NoteCard"
 
 
-const Notess = () => {
 
+
+const Notess = () => {
     const [allnotes, setAllNotes] = useState([])
 
     useEffect(() => {
@@ -25,14 +26,11 @@ const Notess = () => {
 
             <h1>All notes</h1>
             <Grid container spacing={3}>
-
-
                 {allnotes && allnotes.map(ele => {
                     return (
                         <Grid key={ele.id} item sm={12} md={6} lg={4}>
                             <div >
                                 <NoteCard info={ele} DeleteNote={DeleteNote} />
-
                             </div>
                         </Grid>
                     )

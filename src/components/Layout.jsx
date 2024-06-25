@@ -9,31 +9,33 @@ import { Link, useLocation } from "react-router-dom";
 
 
 const drewWidth = 240
-const useStyles = makeStyles(() => ({
-    drawer: {
-        width: drewWidth
-    },
-    drawerPaper: {
-        width: drewWidth
-    },
-    page: {
-        width: "100%",
-        background: "#f9f9f9f"
-    },
-    root: {
-        display: "flex"
-    },
-    margin: {
-        margin: "20px"
-    },
-    link: {
-        textDecoration: "none"
-    },
-    active: {
-        background: "#f3f3f3",
-
+const useStyles = makeStyles((theme) => {
+    return {
+        drawer: {
+            width: drewWidth
+        },
+        drawerPaper: {
+            width: drewWidth
+        },
+        page: {
+            width: "100%",
+            background: "#f9f9f9f",
+            padding: theme.spacing(2)
+        },
+        root: {
+            display: "flex"
+        },
+        title: {
+            padding: theme.spacing(3)
+        },
+        link: {
+            textDecoration: "none"
+        },
+        active: {
+            background: "#f3f3f3",
+        }
     }
-}));
+});
 const Layout = ({ children }) => {
 
     const classes = useStyles()
@@ -63,7 +65,7 @@ const Layout = ({ children }) => {
                 anchor="left"
                 className={classes.drawer}
             >
-                <div className={classes.margin}>
+                <div className={classes.title}>
                     <Typography variant="h5">
                         Hany Mohamed
                     </Typography>
