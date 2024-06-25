@@ -1,9 +1,24 @@
 import { DeleteOutlined } from "@mui/icons-material";
 import { Card, CardContent, CardHeader, IconButton, Typography } from "@mui/material";
 
-const NoteCard = ({ info, DeleteNote }) => {
+import { makeStyles } from '@mui/styles';
 
-  return <Card>
+
+const useStyles = makeStyles({
+  test: {
+    border: (note) => {
+      if (note.category === "female") {
+        return "1px solid red"
+      }
+    }
+  }
+})
+const NoteCard = ({ info, DeleteNote }) => {
+  const classes = useStyles(info)
+
+  return <Card
+    className={classes.test}
+  >
     <CardHeader
       action={
         <IconButton
