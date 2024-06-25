@@ -2,7 +2,6 @@ import { Container, Grid } from "@mui/material"
 import { useEffect, useState } from "react"
 import NoteCard from "../components/NoteCard"
 
-
 const Notess = () => {
 
     const [allnotes, setAllNotes] = useState([])
@@ -38,6 +37,9 @@ const Notess = () => {
                     )
                 })}
             </Grid>
+
+
+
         </Container>
     )
 }
