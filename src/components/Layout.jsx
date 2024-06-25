@@ -1,9 +1,10 @@
 
 
-// import clases from "./page.module.css"
-import { Drawer, Typography } from "@mui/material"
+import { AddCircleOutlineOutlined, SubjectOutlined } from "@mui/icons-material";
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material"
 
 import { makeStyles } from '@mui/styles';
+import { Link, useLocation } from "react-router-dom";
 
 
 
@@ -19,22 +20,43 @@ const useStyles = makeStyles(() => ({
         width: "100%",
         background: "#f9f9f9f"
     },
-    flex: {
+    root: {
         display: "flex"
     },
     margin: {
         margin: "20px"
+    },
+    link: {
+        textDecoration: "none"
+    },
+    active: {
+        background: "#f3f3f3",
+
     }
 }));
 const Layout = ({ children }) => {
 
     const classes = useStyles()
+    const location = useLocation()
+    const list = [
+        {
+            value: "My Notes",
+            path: "/",
+            icon: <SubjectOutlined color="secondary" />
+        },
+        {
+            value: "Create Note",
+            path: "/create",
+            icon: <AddCircleOutlineOutlined color="secondary" />
+        },
 
+    ]
 
     return (
         <div
-            className={classes.flex}
+            className={classes.root}
         >
+
             <Drawer
                 classes={{ paper: classes.drawerPaper }}
                 variant="permanent"
@@ -46,6 +68,25 @@ const Layout = ({ children }) => {
                         Hany Mohamed
                     </Typography>
                 </div>
+
+                <List>
+                    {
+                        list.map(note => {
+                            return (
+                                <Link className={classes.link} to={note.path} key={note.value} >
+                                    <ListItem
+                                        className={location.pathname === note.path ? classes.active : null}
+                                    >
+                                        <ListItemIcon
+                                        >{note.icon}</ListItemIcon>
+                                        <ListItemText color="secondary" primary={note.value} />
+                                    </ListItem>
+                                </Link>
+                            )
+                        })
+                    }
+                </List>
+
             </Drawer>
             <div
                 className={classes.page}
