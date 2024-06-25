@@ -1,41 +1,48 @@
 
 
 import { AddCircleOutlineOutlined, SubjectOutlined } from "@mui/icons-material";
-import { Drawer, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material"
+import { AppBar, Drawer, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material"
 
 import { makeStyles } from '@mui/styles';
+import { format } from "date-fns";
 import { Link, useLocation } from "react-router-dom";
 
 
 
-const drewWidth = 240
-const useStyles = makeStyles((theme) => {
-    return {
-        drawer: {
-            width: drewWidth
-        },
-        drawerPaper: {
-            width: drewWidth
-        },
-        page: {
-            width: "100%",
-            background: "#f9f9f9f",
-            padding: theme.spacing(2)
-        },
-        root: {
-            display: "flex"
-        },
-        title: {
-            padding: theme.spacing(3)
-        },
-        link: {
-            textDecoration: "none"
-        },
-        active: {
-            background: "#f3f3f3",
-        }
+const drawerWidth = 240;
+const useStyles = makeStyles((theme) => ({
+    drawer: {
+        width: drawerWidth,
+    },
+    drawerPaper: {
+        width: drawerWidth,
+    },
+    page: {
+        width: "100%",
+        background: "#f9f9f9", // corrected typo
+        padding: theme.spacing(2),
+    },
+    root: {
+        display: "flex",
+    },
+    title: {
+        padding: theme.spacing(3),
+    },
+    link: {
+        textDecoration: "none",
+    },
+    active: {
+        background: "#f3f3f3",
+    },
+    appbar: {
+        width: `calc(100% - ${drawerWidth}px) !important`,
+    },
+    toolbar: theme.mixins.toolbar,
+    date: {
+        flexGrow: "1"
     }
-});
+}));
+
 const Layout = ({ children }) => {
 
     const classes = useStyles()
@@ -58,7 +65,18 @@ const Layout = ({ children }) => {
         <div
             className={classes.root}
         >
-
+            <AppBar
+                className={classes.appbar}
+                elevation={0}>
+                <Toolbar>
+                    <Typography className={classes.date}>
+                        TODAY IS THE : {format(new Date(), `do MMMM Y `)}
+                    </Typography>
+                    <Typography>
+                        Hany Mohamed
+                    </Typography>
+                </Toolbar>
+            </AppBar>
             <Drawer
                 classes={{ paper: classes.drawerPaper }}
                 variant="permanent"
@@ -93,6 +111,8 @@ const Layout = ({ children }) => {
             <div
                 className={classes.page}
             >
+
+                <div className={classes.toolbar}></div>
                 {children}
             </div>
         </div>
