@@ -1,25 +1,54 @@
-// import { makeStyles } from "@mui/material"
+
+
+// import clases from "./page.module.css"
+import { Drawer, Typography } from "@mui/material"
+
+import { makeStyles } from '@mui/styles';
 
 
 
-// import classes from "./"
-import clases from "./page.module.css"
-// const useStyles = makeStyles({
-//     page: {
-//         with: "100%",
-//         backgroud: "f9f9f9"
-//     }
-// })
+const drewWidth = 240
+const useStyles = makeStyles(() => ({
+    drawer: {
+        width: drewWidth
+    },
+    drawerPaper: {
+        width: drewWidth
+    },
+    page: {
+        width: "100%",
+        background: "#f9f9f9f"
+    },
+    flex: {
+        display: "flex"
+    },
+    margin: {
+        margin: "20px"
+    }
+}));
 const Layout = ({ children }) => {
 
-    // const classes = useStyles()
+    const classes = useStyles()
 
 
     return (
-        <div>
-
+        <div
+            className={classes.flex}
+        >
+            <Drawer
+                classes={{ paper: classes.drawerPaper }}
+                variant="permanent"
+                anchor="left"
+                className={classes.drawer}
+            >
+                <div className={classes.margin}>
+                    <Typography variant="h5">
+                        Hany Mohamed
+                    </Typography>
+                </div>
+            </Drawer>
             <div
-                className={clases.layout}
+                className={classes.page}
             >
                 {children}
             </div>
