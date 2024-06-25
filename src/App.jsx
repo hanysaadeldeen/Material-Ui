@@ -1,22 +1,39 @@
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider, createTheme } from "@mui/material";
+import { purple } from "@mui/material/colors";
+import Notess from "./pages/Notess";
+import Create from "./pages/Create";
+import Layout from "./components/Layout";
+// import { ThemeProvider, createMuiTheme } from "@emotion/react";
 
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
 
+
+const Theme = createTheme({
+  palette: {
+
+    secondary: purple
+  },
+  typography: {
+    fontFamily: "Quicksand",
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    fontWeightBold: 700,
+  }
+})
 function App() {
-
   return (
-    <Container>
-      <Typography variant="h4" component="h1" gutterBottom>
-        Hello, Material-UI with Vite!
-      </Typography>
-      <Button variant="contained" color="primary">
-        Click Me
-      </Button>
-    </Container>
-
-  )
+    <ThemeProvider theme={Theme}>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route element={<Create />} path="/create" />
+            <Route element={<Notess />} path="/" />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;

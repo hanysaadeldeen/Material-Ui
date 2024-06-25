@@ -1,0 +1,13 @@
+.layout {
+    width: 100%;
+    background-color: #eee;
+}
+
+.drawer {
+    width: 200px;
+}
+
+.flex {
+    display: flex;
+    gap: 20px;
+}
