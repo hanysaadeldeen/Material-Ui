@@ -1,8 +1,7 @@
-import { Container, Grid } from "@mui/material"
+import { Container } from "@mui/material"
 import { useEffect, useState } from "react"
 import NoteCard from "../components/NoteCard"
-
-
+import Masonry from 'react-masonry-css'
 
 
 const Notess = () => {
@@ -21,21 +20,28 @@ const Notess = () => {
         const newNotes = allnotes.filter((note) => note.id !== id)
         setAllNotes(newNotes)
     }
+
+    const brackPoint = {
+        default: 3,
+        1100: 2,
+        700: 1
+    }
     return (
         <Container>
 
-            <h1>All notes</h1>
-            <Grid container spacing={3}>
+            <h1>All notes lorem</h1>
+            <Masonry
+                breakpointCols={brackPoint}
+                className="my-masonry-grid"
+                columnClassName="my-masonry-grid_column">
                 {allnotes && allnotes.map(ele => {
                     return (
-                        <Grid key={ele.id} item sm={12} md={6} lg={4}>
-                            <div >
-                                <NoteCard info={ele} DeleteNote={DeleteNote} />
-                            </div>
-                        </Grid>
+                        <div key={ele.id}>
+                            <NoteCard info={ele} DeleteNote={DeleteNote} />
+                        </div>
                     )
                 })}
-            </Grid>
+            </Masonry>
         </Container>
     )
 }
