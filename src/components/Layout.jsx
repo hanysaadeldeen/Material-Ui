@@ -1,8 +1,7 @@
 
 
 import { AddCircleOutlineOutlined, SubjectOutlined } from "@mui/icons-material";
-import { AppBar, Drawer, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material"
-
+import { AppBar, Avatar, Drawer, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material"
 import { makeStyles } from '@mui/styles';
 import { format } from "date-fns";
 import { Link, useLocation } from "react-router-dom";
@@ -40,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
     toolbar: theme.mixins.toolbar,
     date: {
         flexGrow: "1"
+    },
+    avatar: {
+        marginLeft: theme.spacing(2)
     }
 }));
 
@@ -58,7 +60,6 @@ const Layout = ({ children }) => {
             path: "/create",
             icon: <AddCircleOutlineOutlined color="secondary" />
         },
-
     ]
 
     return (
@@ -75,6 +76,7 @@ const Layout = ({ children }) => {
                     <Typography>
                         Hany Mohamed
                     </Typography>
+                    <Avatar className={classes.avatar} src="../assets/conv.png" />
                 </Toolbar>
             </AppBar>
             <Drawer
